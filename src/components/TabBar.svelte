@@ -1,6 +1,13 @@
 <script lang="ts">
   import Icon from './Icon.svelte';
   import { navigate, route, type Tab } from '../lib/router.svelte';
+  import { ui } from '../lib/ui.svelte';
+
+  // Via de tabbalk starten = geen maaltijd-context van een "+"-knop meer.
+  function go(tab: Tab) {
+    ui.meal = null;
+    navigate(tab);
+  }
 
   const items: { tab: Tab; label: string }[] = [
     { tab: 'vandaag', label: 'Vandaag' },
@@ -19,7 +26,7 @@
         class:active={route.tab === 'scan'}
         aria-label={item.label}
         aria-current={route.tab === 'scan' ? 'page' : undefined}
-        onclick={() => navigate('scan')}
+        onclick={() => go('scan')}
       >
         <span class="scan-circle"><Icon name="scan" size={28} /></span>
       </button>
@@ -28,7 +35,7 @@
         class="tab"
         class:active={route.tab === item.tab}
         aria-current={route.tab === item.tab ? 'page' : undefined}
-        onclick={() => navigate(item.tab)}
+        onclick={() => go(item.tab)}
       >
         <Icon name={item.tab} />
         <span class="label">{item.label}</span>

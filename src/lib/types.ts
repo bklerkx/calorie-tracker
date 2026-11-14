@@ -65,8 +65,12 @@ export interface LogEntry {
   maaltijd: MealType;
   type: LogType;
   refId?: number;
+  /** Naam op het moment van loggen (blijft staan als het product later wijzigt). */
   omschrijving?: string;
   gram?: number;
+  eenheid?: Unit;
+  /** Gekozen portie, bijvoorbeeld 2 × "1 plak". Leeg = hoeveelheid in gram/ml. */
+  portie?: { naam: string; aantal: number };
   /** Snapshot van de berekende waarden voor deze invoer (D3). */
   waarden: Nutrients;
   aangemaakt: number;
