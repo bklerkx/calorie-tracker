@@ -121,3 +121,196 @@ textarea {
   min-width: 44px;
   padding: 0 4px;
 }
+
+/* Segmented control */
+.seg {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 9px;
+  background: var(--fill);
+}
+
+.seg button {
+  min-height: 36px;
+  padding: 0 4px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.seg button.active {
+  background: var(--card);
+  font-weight: 600;
+}
+
+/* Knoppen */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 50px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+}
+
+.btn-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 8px;
+}
+
+.btn-secondary {
+  min-height: 44px;
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.btn-secondary.danger {
+  color: var(--danger);
+}
+
+/* Chips voor snelle porties */
+.chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 0 var(--gutter);
+}
+
+.chips::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  flex: none;
+  min-height: 36px;
+  min-width: 44px;
+  padding: 0 14px;
+  border-radius: 18px;
+  background: var(--card);
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.chip.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Formulierlijst in iOS-stijl */
+.form {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.form label,
+.form .row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  margin-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.form > * + * {
+  border-top: 0.5px solid var(--separator);
+}
+
+.form label > span:first-child {
+  flex: none;
+  min-width: 96px;
+  color: var(--text);
+}
+
+.form input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: right;
+}
+
+.form input::placeholder {
+  color: var(--text-3);
+}
+
+.form .suffix {
+  flex: none;
+  color: var(--text-2);
+  min-width: 28px;
+}
+
+.section-title {
+  margin: 0 0 6px var(--gutter);
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+/* Lijstregels */
+.list-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 52px;
+  padding: 8px var(--gutter);
+  text-align: left;
+  background: var(--card);
+}
+
+.list-row .main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-row .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-row .sub {
+  font-size: 13px;
+  color: var(--text-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-row .end {
+  flex: none;
+  color: var(--text-2);
+}
+
+.list > * + * {
+  box-shadow: inset var(--gutter) 0.5px 0 0 var(--card), inset 0 0.5px 0 0 var(--separator);
+}
